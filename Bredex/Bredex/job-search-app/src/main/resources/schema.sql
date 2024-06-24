@@ -1,0 +1,15 @@
+CREATE TABLE client (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    api_key VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE job (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    description TEXT NOT NULL,
+    location VARCHAR(255) NOT NULL,
+    client_id BIGINT,
+    FOREIGN KEY (client_id) REFERENCES client(id)
+);
